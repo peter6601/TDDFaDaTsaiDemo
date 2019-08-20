@@ -18,3 +18,17 @@ class ViewController: UIViewController {
 
 }
 
+
+class FaTsaiBrain {
+    
+    private(set) var list: [Int] = []
+   
+    init(_ list: [Int]) {
+        self.list = list
+    }
+    
+    func updateList(_ list: [Int]) {
+        self.list = list
+    }
+    
+}
