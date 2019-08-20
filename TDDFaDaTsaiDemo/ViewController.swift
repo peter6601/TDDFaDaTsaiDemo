@@ -31,4 +31,7 @@ class FaTsaiBrain {
         self.list = list
     }
     
+    func checkCount(_ count: Int) -> Bool {
+        
+    }
 }
