@@ -10,8 +10,8 @@ import XCTest
 @testable import TDDFaDaTsaiDemo
 
 class TDDFaDaTsaiDemoTests: XCTestCase {
-   
-    let faTsaiLa = FaTsaiBrain([1,2,3,4,5,6])
+
+    let faTsaiLa = FaTsaiBrain([2,6,29,31,36,37])
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,10 +21,36 @@ class TDDFaDaTsaiDemoTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testCountIsSix() {
-        XCTAssert(faTsaiLa.checkCount(6))
+    func testNumbersCountIsSix() {
+        XCTAssertTrue(faTsaiLa.checkNumbersCount(6))
         
     }
+    
+    func testNumbersRange() {
+        XCTAssertTrue(faTsaiLa.checkNumbersRange(first: 1, last: 38))
+    }
+    
+    func testNumbersAreOdd() {
+        XCTAssertTrue(!faTsaiLa.checkNumbersAreOdd())
+    }
+    
+    func testNumbersAreEven() {
+        XCTAssertTrue(!faTsaiLa.checkNumbersAreEven())
+
+    }
+    
+    func testNumbersNotContainSpecificNumbers() {
+        XCTAssertTrue(faTsaiLa.checkNumbersNotsContainSpecificNumbers([4,13]))
+
+    }
+    
+    func testNumbersContainSpecificNumbers() {
+        XCTAssertTrue(faTsaiLa.checkNumbersContainSpecificNumbers([2,31]))
+
+    }
+    
+    func testNumbersAreContinuity() {
+        XCTAssertTrue(faTsaiLa.checkNumbersAreContinuitys(2))
     }
 
 
