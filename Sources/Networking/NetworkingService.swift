@@ -15,7 +15,7 @@ protocol Requests {
 
 /// Representing a Service protocol
 protocol Service {
-    func get(request: Requests, completion: @escaping (Result<Data, Error>) -> Void)
+    func get(request: Requests, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionTask?
 }
 
 /// Networking Service
@@ -23,10 +23,12 @@ final class NetworkingService: Service {
 
     /// Get request
     ///
-    /// parameter: Takes a `Requests` object
-    /// completion: `Result` of data or errors
-    func get(request: Requests, completion: @escaping (Result<Data, Error>) -> Void) {
-        URLSession.shared.dataTask(with: request.url) { (data, response, error) in
+    /// - Parameter request: Takes a `Requests` object
+    /// - Parameter completion: `Result` of data or errors
+    ///
+    /// - Returns: `URLSessionTask`
+    func get(request: Requests, completion: @escaping (Result<Data, Error>) -> Void) -> URLSessionTask? {
+        let task = URLSession.shared.dataTask(with: request.url) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -36,7 +38,9 @@ final class NetworkingService: Service {
                 return
             }
             completion(.success(data))
-        }.resume()
+        }
+        task.resume()
+        return task
     }
 }
 

@@ -32,10 +32,12 @@ final class FaDaTsaiAPI {
 
     /// Retrieve `FaDaTsaiResult` from `Requests` object
     ///
-    /// parameter: Takes a `Requests` object to retrieve its request
-    /// completion: `Result` of `FaDaTsaiResult` or errors
-    func getResult(request: Requests = APIRequests.request, completion: @escaping (Result<FaDaTsaiResult, Error>) -> Void) {
-        service.get(request: request) { result in
+    /// - Parameter request: Takes a `Requests` object to retrieve its request
+    /// - Parameter completion: `Result` of `FaDaTsaiResult` or errors
+    /// 
+    /// - Returns: `URLSessionTask`
+    func getResult(request: Requests = APIRequests.request, completion: @escaping (Result<FaDaTsaiResult, Error>) -> Void) -> URLSessionTask? {
+        return service.get(request: request) { result in
             switch result {
             case .success(let data):
                 do {
