@@ -8,6 +8,8 @@
 
 import Foundation
 
+/// A collection of `FaDaTsaiResult`
 struct FaDaTsaiResult: Codable {
+    /// The winning number result
     var result: [Int]
 }
