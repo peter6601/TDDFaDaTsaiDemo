@@ -10,8 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private enum Constants {
+        static let lotteryNumbersCount = 6
+        static let smallesNumber = 1
+        static let largestNumber = 49
+    }
+
+    private let generator = Generator()
+
+    @IBOutlet private weak var selectedNumbersLabel: UILabel!
+
+    @IBAction private func selectNumbersButtonTapped(_ sender: UIButton) {
+        selectedNumbersLabel.text = generator.randomNumbers(between: Constants.smallesNumber, Constants.largestNumber, totalNumbersNeeded: Constants.lotteryNumbersCount).toStringWithComma
     }
 }
 
