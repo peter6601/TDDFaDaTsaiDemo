@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TDDFaDaTsaiDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請按選號按鈕" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCE-f4-tiu">
+                                <rect key="frame" x="155" y="437.5" width="104" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DF3-wm-aoe">
+                                <rect key="frame" x="191.5" y="466.5" width="31" height="30"/>
+                                <state key="normal" title="選號"/>
+                                <connections>
+                                    <action selector="selectNumbersButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t3g-Ci-4aA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7v-68-txH">
+                                <rect key="frame" x="207" y="104" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gex-2F-1DM">
+                                <rect key="frame" x="186.5" y="766" width="41" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="兌獎"/>
+                                <connections>
+                                    <action selector="getResultButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mt4-zs-NpV"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aRv-AY-9LD">
+                                <rect key="frame" x="197" y="774" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DF3-wm-aoe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1PV-4J-T9s"/>
+                            <constraint firstItem="aRv-AY-9LD" firstAttribute="centerX" secondItem="Gex-2F-1DM" secondAttribute="centerX" id="L6p-38-jSm"/>
+                            <constraint firstItem="J7v-68-txH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qs2-9J-Cj3"/>
+                            <constraint firstItem="FCE-f4-tiu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Sst-hO-fEd"/>
+                            <constraint firstItem="aRv-AY-9LD" firstAttribute="centerY" secondItem="Gex-2F-1DM" secondAttribute="centerY" id="fsC-cE-0D5"/>
+                            <constraint firstItem="DF3-wm-aoe" firstAttribute="top" secondItem="FCE-f4-tiu" secondAttribute="bottom" constant="8" id="gOI-Dg-kfK"/>
+                            <constraint firstItem="J7v-68-txH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="hRh-jZ-0iX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Gex-2F-1DM" secondAttribute="bottom" constant="60" id="iOX-6j-5Q1"/>
+                            <constraint firstItem="FCE-f4-tiu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iRS-AY-2sh"/>
+                            <constraint firstItem="FCE-f4-tiu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qJh-T8-S5t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FCE-f4-tiu" secondAttribute="trailing" id="wrU-4y-anF"/>
+                            <constraint firstItem="Gex-2F-1DM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xfW-r3-pkz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="getResultButton" destination="Gex-2F-1DM" id="ghc-bJ-qEd"/>
+                        <outlet property="resultLabel" destination="J7v-68-txH" id="Ffd-7c-1Nd"/>
+                        <outlet property="selectedNumbersLabel" destination="FCE-f4-tiu" id="SBp-CD-hlP"/>
+                        <outlet property="spinner" destination="aRv-AY-9LD" id="3DC-Dj-3zh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="68"/>
+        </scene>
+    </scenes>
+</document>
