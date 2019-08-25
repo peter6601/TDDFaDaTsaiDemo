@@ -18,6 +18,13 @@
 		E313D2D4230EDAEA00727FD1 /* Array+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C8893C230ED82E009256BA /* Array+ToString.swift */; };
 		E313D2D6230EDB0C00727FD1 /* GeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313D2D5230EDB0C00727FD1 /* GeneratorTests.swift */; };
 		E313D2DA230EDD7400727FD1 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313D2D9230EDD7400727FD1 /* ArrayExtensionTests.swift */; };
+		E313D2DE2312443700727FD1 /* FaDaTsaiAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313D2DD2312443700727FD1 /* FaDaTsaiAPITests.swift */; };
+		E313D2E02312446700727FD1 /* FaDaTsaiResultModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313D2DF2312446700727FD1 /* FaDaTsaiResultModelTests.swift */; };
+		E313D2E5231245C400727FD1 /* FaDaTsaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88934230D7595009256BA /* FaDaTsaiAPI.swift */; };
+		E313D2E6231245C700727FD1 /* FaDaTsaiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88937230D75E5009256BA /* FaDaTsaiResult.swift */; };
+		E313D2E7231245CF00727FD1 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88930230D6FBC009256BA /* NetworkingService.swift */; };
+		E3560D97231249910019B2C7 /* FaDaTsaiResult.json in Resources */ = {isa = PBXBuildFile; fileRef = E313D2E92312461600727FD1 /* FaDaTsaiResult.json */; };
+		E3560D98231249940019B2C7 /* FaDaTsaiInvalidResult.json in Resources */ = {isa = PBXBuildFile; fileRef = E313D2E82312461600727FD1 /* FaDaTsaiInvalidResult.json */; };
 		E3C88931230D6FBC009256BA /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88930230D6FBC009256BA /* NetworkingService.swift */; };
 		E3C88935230D7595009256BA /* FaDaTsaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88934230D7595009256BA /* FaDaTsaiAPI.swift */; };
 		E3C88938230D75E5009256BA /* FaDaTsaiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88937230D75E5009256BA /* FaDaTsaiResult.swift */; };
@@ -48,6 +55,10 @@
 		2D5F4965230B933A0019B968 /* TestInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestInfo.plist; sourceTree = "<group>"; };
 		E313D2D5230EDB0C00727FD1 /* GeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GeneratorTests.swift; path = ../../../../../../System/Volumes/Data/Users/stevesun/dev/TDDFaDaTsaiDemo/Tests/Generator/GeneratorTests.swift; sourceTree = "<group>"; };
 		E313D2D9230EDD7400727FD1 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
+		E313D2DD2312443700727FD1 /* FaDaTsaiAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FaDaTsaiAPITests.swift; path = ../../../../../../System/Volumes/Data/Users/stevesun/dev/TDDFaDaTsaiDemo/Tests/API/FaDaTsaiAPITests.swift; sourceTree = "<group>"; };
+		E313D2DF2312446700727FD1 /* FaDaTsaiResultModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FaDaTsaiResultModelTests.swift; path = ../../../../../../System/Volumes/Data/Users/stevesun/dev/TDDFaDaTsaiDemo/Tests/Models/FaDaTsaiResultModelTests.swift; sourceTree = "<group>"; };
+		E313D2E82312461600727FD1 /* FaDaTsaiInvalidResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FaDaTsaiInvalidResult.json; sourceTree = "<group>"; };
+		E313D2E92312461600727FD1 /* FaDaTsaiResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FaDaTsaiResult.json; sourceTree = "<group>"; };
 		E3C88930230D6FBC009256BA /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		E3C88934230D7595009256BA /* FaDaTsaiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaDaTsaiAPI.swift; sourceTree = "<group>"; };
 		E3C88937230D75E5009256BA /* FaDaTsaiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaDaTsaiResult.swift; sourceTree = "<group>"; };
@@ -108,8 +119,10 @@
 		2D5F4962230B933A0019B968 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				E313D2DC2312441C00727FD1 /* API */,
 				E313D2D2230EDADC00727FD1 /* Extensions */,
 				E313D2D1230EDACE00727FD1 /* Generator */,
+				E313D2DB2312440700727FD1 /* Models */,
 				2D5F4963230B933A0019B968 /* TDDFaDaTsaiDemoTests.swift */,
 			);
 			path = Tests;
@@ -129,6 +142,24 @@
 				E313D2D9230EDD7400727FD1 /* ArrayExtensionTests.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E313D2DB2312440700727FD1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E313D2DF2312446700727FD1 /* FaDaTsaiResultModelTests.swift */,
+				E313D2E92312461600727FD1 /* FaDaTsaiResult.json */,
+				E313D2E82312461600727FD1 /* FaDaTsaiInvalidResult.json */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E313D2DC2312441C00727FD1 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E313D2DD2312443700727FD1 /* FaDaTsaiAPITests.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		E3C8892C230D6D55009256BA /* Metadata */ = {
@@ -275,6 +306,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3560D97231249910019B2C7 /* FaDaTsaiResult.json in Resources */,
+				E3560D98231249940019B2C7 /* FaDaTsaiInvalidResult.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,10 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E313D2DE2312443700727FD1 /* FaDaTsaiAPITests.swift in Sources */,
+				E313D2E02312446700727FD1 /* FaDaTsaiResultModelTests.swift in Sources */,
 				E313D2D3230EDAE700727FD1 /* Generator.swift in Sources */,
 				E313D2D6230EDB0C00727FD1 /* GeneratorTests.swift in Sources */,
 				2D5F497C230B94160019B968 /* ViewController.swift in Sources */,
+				E313D2E6231245C700727FD1 /* FaDaTsaiResult.swift in Sources */,
 				2D5F4964230B933A0019B968 /* TDDFaDaTsaiDemoTests.swift in Sources */,
+				E313D2E5231245C400727FD1 /* FaDaTsaiAPI.swift in Sources */,
+				E313D2E7231245CF00727FD1 /* NetworkingService.swift in Sources */,
 				E313D2D4230EDAEA00727FD1 /* Array+ToString.swift in Sources */,
 				E313D2DA230EDD7400727FD1 /* ArrayExtensionTests.swift in Sources */,
 			);

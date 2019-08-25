@@ -38,17 +38,19 @@ final class FaDaTsaiAPI {
     /// - Returns: `URLSessionTask`
     func getResult(request: Requests = APIRequests.request, completion: @escaping (Result<FaDaTsaiResult, Error>) -> Void) -> URLSessionTask? {
         return service.get(request: request) { result in
-            switch result {
-            case .success(let data):
-                do {
-                    let faDaTsai: FaDaTsaiResult = try JSONDecoder().decode(FaDaTsaiResult.self, from: data)
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let data):
+                    do {
+                        let faDaTsai: FaDaTsaiResult = try JSONDecoder().decode(FaDaTsaiResult.self, from: data)
 
-                    completion(.success(faDaTsai))
-                } catch {
+                        completion(.success(faDaTsai))
+                    } catch {
+                        completion(.failure(error))
+                    }
+                case .failure(let error):
                     completion(.failure(error))
                 }
-            case .failure(let error):
-                completion(.failure(error))
             }
         }
     }
