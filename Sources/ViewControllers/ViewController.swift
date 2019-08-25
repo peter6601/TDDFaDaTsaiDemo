@@ -62,25 +62,23 @@ class ViewController: UIViewController {
             guard let strongSelf = self else {
                 return
             }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let faDaTsai):
-                    strongSelf.resultLabel.text = faDaTsai.result.toStringWithComma
+            switch result {
+            case .success(let faDaTsai):
+                strongSelf.resultLabel.text = faDaTsai.result.toStringWithComma
 
-                    let alertValue: (title: String, message: String) = {
-                        if strongSelf.selectedNumbersLabel.text == strongSelf.resultLabel.text {
-                            return ("恭喜", "發大財了")
-                        }
-                        return ("可惜", "離發大財只差一小步")
-                    }()
+                let alertValue: (title: String, message: String) = {
+                    if strongSelf.selectedNumbersLabel.text == strongSelf.resultLabel.text {
+                        return ("恭喜", "發大財了")
+                    }
+                    return ("可惜", "離發大財只差一小步")
+                }()
 
-                    strongSelf.showAlert(title: alertValue.title, message: alertValue.message)
-                case .failure:
-                    break
-                }
-
-                strongSelf.showNormalView()
+                strongSelf.showAlert(title: alertValue.title, message: alertValue.message)
+            case .failure:
+                break
             }
+
+            strongSelf.showNormalView()
         }
     }
 }
