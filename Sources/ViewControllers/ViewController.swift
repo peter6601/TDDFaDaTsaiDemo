@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         static let largestNumber = 49
     }
 
-    private let generator = Generator()
+    private let generator = Generator(faTsaiBrain: FaTsaiBrain(selectNumbersCount: Constants.lotteryNumbersCount, containNumbers: [6,31], unContainNumbers: [4,13], continuitysNumbers: 1, numbersRange: (Constants.smallesNumber, Constants.largestNumber)))
 
     @IBOutlet private weak var selectedNumbersLabel: UILabel!
     @IBOutlet private weak var resultLabel: UILabel!

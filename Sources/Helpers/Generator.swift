@@ -8,7 +8,9 @@
 
 import Foundation
 
-final class Generator {
+struct Generator {
+    
+    var faTsaiBrain: FaTsaiBrain
 
     func randomNumbers(between smallest: Int, _ largest: Int, totalNumbersNeeded total: Int) -> [Int] {
         guard largest - smallest + 1 >= total else {
@@ -21,10 +23,20 @@ final class Generator {
             let randomInt = Int.random(in: smallest...largest)
             set.insert(randomInt)
         }
-
-        return Array(set).sorted()
+        
+        var list = Array(set).sorted()
+       
+        while !faTsaiBrain.checkResult(list) {
+            set.removeAll()
+            while set.count < total {
+                let randomInt = Int.random(in: smallest...largest)
+                set.insert(randomInt)
+            }
+            list = Array(set).sorted()
+        }
+        
+        return list
     }
-
 }
 
 
