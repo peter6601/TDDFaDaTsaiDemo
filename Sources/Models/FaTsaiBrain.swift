@@ -28,15 +28,12 @@ struct FaTsaiBrain {
             return false
         }
         guard checkNumbersContainNumbers(containNumbers, list: list) else {
-            print("沒有包含數字")
             return false
         }
-        guard checkNumbersNotsContainNumbers(containNumbers, list: list) else {
-            print("沒有去掉數字")
+        guard checkNumbersNotsContainNumbers(unContainNumbers, list: list) else {
             return false
         }
         guard checkNumbersAreContinuitys(continuitysNumbers, list: list) else {
-            print("沒有連號")
             return false
         }
         return true
