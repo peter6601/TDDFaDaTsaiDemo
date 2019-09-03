@@ -30,14 +30,6 @@ class TDDFaDaTsaiDemoTests: XCTestCase {
         XCTAssertTrue(faTsaiLa.checkNumbersRange(first: 1, last: 38))
     }
     
-    func testNumbersAreOdd() {
-        XCTAssertTrue(!faTsaiLa.checkNumbersAreOdd())
-    }
-    
-    func testNumbersAreEven() {
-        XCTAssertTrue(!faTsaiLa.checkNumbersAreEven())
-
-    }
     
     func testNumbersNotContainSpecificNumbers() {
         XCTAssertTrue(faTsaiLa.checkNumbersNotsContainSpecificNumbers([4,13]))
@@ -45,12 +37,12 @@ class TDDFaDaTsaiDemoTests: XCTestCase {
     }
     
     func testNumbersContainSpecificNumbers() {
-        XCTAssertTrue(faTsaiLa.checkNumbersContainSpecificNumbers([2,31]))
+        XCTAssertTrue(faTsaiLa.checkNumbersContainSpecificNumbers([6,31]))
 
     }
     
     func testNumbersAreContinuity() {
-        XCTAssertTrue(faTsaiLa.checkNumbersAreContinuitys(2))
+        XCTAssertTrue(faTsaiLa.checkNumbersAreContinuitys(1))
     }
 
 
