@@ -8,12 +8,12 @@
 
 import Foundation
 
-final class FaTsaiBrain {
+struct ConsecutiveNumbersInfo {
+    var total: Int = 0
+    var start: Int?
+}
 
-    struct ConsecutiveNumbersInfo {
-        var total: Int = 0
-        var start: Int?
-    }
+final class FaTsaiBrain {
 
     var totalNumbersCount: Int
 
@@ -56,7 +56,7 @@ final class FaTsaiBrain {
             start >= numbersRange.first,
             start < numbersRange.last {
 
-            for i in start...numbersRange.last {
+            for i in start...start+info.total {
                 result.insert(i)
             }
             return result

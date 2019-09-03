@@ -11,7 +11,7 @@ import XCTest
 
 class FaTsaiBrainTests: XCTestCase {
 
-    var faTsaiBrain = FaTsaiBrain(totalNumbersCount: 3, numbersRange: (1, 5))
+    var faTsaiBrain = FaTsaiBrain(totalNumbersCount: 3, numbersRange: (1, 10))
 
     func testInclusiveNumbers() {
         faTsaiBrain.inclusiveNumbers = [2]
@@ -19,8 +19,15 @@ class FaTsaiBrainTests: XCTestCase {
     }
 
     func testRequiredNumbersNotInRange() {
+        faTsaiBrain.numbersRange = (1, 5)
         faTsaiBrain.totalNumbersCount = 6
         XCTAssertTrue(faTsaiBrain.randomNumbers().isEmpty)
+    }
+
+    func testConsecutiveNumbers() {
+        faTsaiBrain.consecutiveNumbersInfo = ConsecutiveNumbersInfo(total: 2, start: 3)
+        XCTAssertTrue(faTsaiBrain.randomNumbers().contains(3))
+        XCTAssertTrue(faTsaiBrain.randomNumbers().contains(4))
     }
 
 }
