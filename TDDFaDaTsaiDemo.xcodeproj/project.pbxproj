@@ -12,13 +12,10 @@
 		2D5F4954230B93380019B968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F4952230B93380019B968 /* Main.storyboard */; };
 		2D5F4956230B933A0019B968 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F4955230B933A0019B968 /* Assets.xcassets */; };
 		2D5F4959230B933A0019B968 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F4957230B933A0019B968 /* LaunchScreen.storyboard */; };
-		2D5F4964230B933A0019B968 /* TDDFaDaTsaiDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F4963230B933A0019B968 /* TDDFaDaTsaiDemoTests.swift */; };
 		2D5F497C230B94160019B968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F4950230B93380019B968 /* ViewController.swift */; };
 		2D61A3A8231E0601008D4607 /* FaTsaiBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D97967323127E7C000F8788 /* FaTsaiBrain.swift */; };
 		2D97967423127E7C000F8788 /* FaTsaiBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D97967323127E7C000F8788 /* FaTsaiBrain.swift */; };
-		E313D2D3230EDAE700727FD1 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C8893A230EB258009256BA /* Generator.swift */; };
 		E313D2D4230EDAEA00727FD1 /* Array+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C8893C230ED82E009256BA /* Array+ToString.swift */; };
-		E313D2D6230EDB0C00727FD1 /* GeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313D2D5230EDB0C00727FD1 /* GeneratorTests.swift */; };
 		E313D2DA230EDD7400727FD1 /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313D2D9230EDD7400727FD1 /* ArrayExtensionTests.swift */; };
 		E313D2DE2312443700727FD1 /* FaDaTsaiAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313D2DD2312443700727FD1 /* FaDaTsaiAPITests.swift */; };
 		E313D2E02312446700727FD1 /* FaDaTsaiResultModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E313D2DF2312446700727FD1 /* FaDaTsaiResultModelTests.swift */; };
@@ -30,8 +27,8 @@
 		E3C88931230D6FBC009256BA /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88930230D6FBC009256BA /* NetworkingService.swift */; };
 		E3C88935230D7595009256BA /* FaDaTsaiAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88934230D7595009256BA /* FaDaTsaiAPI.swift */; };
 		E3C88938230D75E5009256BA /* FaDaTsaiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88937230D75E5009256BA /* FaDaTsaiResult.swift */; };
-		E3C8893B230EB258009256BA /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C8893A230EB258009256BA /* Generator.swift */; };
 		E3C8893D230ED82E009256BA /* Array+ToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C8893C230ED82E009256BA /* Array+ToString.swift */; };
+		E3F622B6231ECD7700CBA504 /* FaTsaiBrainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F622B5231ECD7700CBA504 /* FaTsaiBrainTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +50,8 @@
 		2D5F4958230B933A0019B968 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D5F495A230B933A0019B968 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D5F495F230B933A0019B968 /* TDDFaDaTsaiDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDDFaDaTsaiDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D5F4963230B933A0019B968 /* TDDFaDaTsaiDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDDFaDaTsaiDemoTests.swift; sourceTree = "<group>"; };
 		2D5F4965230B933A0019B968 /* TestInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestInfo.plist; sourceTree = "<group>"; };
 		2D97967323127E7C000F8788 /* FaTsaiBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaTsaiBrain.swift; sourceTree = "<group>"; };
-		E313D2D5230EDB0C00727FD1 /* GeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorTests.swift; sourceTree = "<group>"; };
 		E313D2D9230EDD7400727FD1 /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
 		E313D2DD2312443700727FD1 /* FaDaTsaiAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaDaTsaiAPITests.swift; sourceTree = "<group>"; };
 		E313D2DF2312446700727FD1 /* FaDaTsaiResultModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaDaTsaiResultModelTests.swift; sourceTree = "<group>"; };
@@ -65,8 +60,8 @@
 		E3C88930230D6FBC009256BA /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		E3C88934230D7595009256BA /* FaDaTsaiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaDaTsaiAPI.swift; sourceTree = "<group>"; };
 		E3C88937230D75E5009256BA /* FaDaTsaiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaDaTsaiResult.swift; sourceTree = "<group>"; };
-		E3C8893A230EB258009256BA /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		E3C8893C230ED82E009256BA /* Array+ToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ToString.swift"; sourceTree = "<group>"; };
+		E3F622B5231ECD7700CBA504 /* FaTsaiBrainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaTsaiBrainTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,19 +119,10 @@
 			children = (
 				E313D2DC2312441C00727FD1 /* API */,
 				E313D2D2230EDADC00727FD1 /* Extensions */,
-				E313D2D1230EDACE00727FD1 /* Generator */,
+				E3F622B4231ECD4C00CBA504 /* FaTsaiBrain */,
 				E313D2DB2312440700727FD1 /* Models */,
-				2D5F4963230B933A0019B968 /* TDDFaDaTsaiDemoTests.swift */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		E313D2D1230EDACE00727FD1 /* Generator */ = {
-			isa = PBXGroup;
-			children = (
-				E313D2D5230EDB0C00727FD1 /* GeneratorTests.swift */,
-			);
-			path = Generator;
 			sourceTree = "<group>";
 		};
 		E313D2D2230EDADC00727FD1 /* Extensions */ = {
@@ -213,10 +199,17 @@
 		E3C88939230EB240009256BA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E3C8893A230EB258009256BA /* Generator.swift */,
 				E3C8893C230ED82E009256BA /* Array+ToString.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E3F622B4231ECD4C00CBA504 /* FaTsaiBrain */ = {
+			isa = PBXGroup;
+			children = (
+				E3F622B5231ECD7700CBA504 /* FaTsaiBrainTests.swift */,
+			);
+			path = FaTsaiBrain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,7 +320,6 @@
 				E3C88938230D75E5009256BA /* FaDaTsaiResult.swift in Sources */,
 				E3C88931230D6FBC009256BA /* NetworkingService.swift in Sources */,
 				2D5F4951230B93380019B968 /* ViewController.swift in Sources */,
-				E3C8893B230EB258009256BA /* Generator.swift in Sources */,
 				2D5F494F230B93380019B968 /* AppDelegate.swift in Sources */,
 				E3C88935230D7595009256BA /* FaDaTsaiAPI.swift in Sources */,
 			);
@@ -340,11 +332,9 @@
 				2D61A3A8231E0601008D4607 /* FaTsaiBrain.swift in Sources */,
 				E313D2DE2312443700727FD1 /* FaDaTsaiAPITests.swift in Sources */,
 				E313D2E02312446700727FD1 /* FaDaTsaiResultModelTests.swift in Sources */,
-				E313D2D3230EDAE700727FD1 /* Generator.swift in Sources */,
-				E313D2D6230EDB0C00727FD1 /* GeneratorTests.swift in Sources */,
 				2D5F497C230B94160019B968 /* ViewController.swift in Sources */,
 				E313D2E6231245C700727FD1 /* FaDaTsaiResult.swift in Sources */,
-				2D5F4964230B933A0019B968 /* TDDFaDaTsaiDemoTests.swift in Sources */,
+				E3F622B6231ECD7700CBA504 /* FaTsaiBrainTests.swift in Sources */,
 				E313D2E5231245C400727FD1 /* FaDaTsaiAPI.swift in Sources */,
 				E313D2E7231245CF00727FD1 /* NetworkingService.swift in Sources */,
 				E313D2D4230EDAEA00727FD1 /* Array+ToString.swift in Sources */,

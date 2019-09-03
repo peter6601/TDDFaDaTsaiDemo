@@ -14,11 +14,11 @@ class ViewController: UIViewController {
         static let lotteryNumbersCount = 6
         static let smallesNumber = 1
         static let largestNumber = 38
-        static let containNumbers =  [6,31]
+        static let containNumbers = [6,31]
         static let unContainNumbers = [4,13]
     }
 
-    private let generator = Generator(faTsaiBrain: FaTsaiBrain(selectNumbersCount: Constants.lotteryNumbersCount, containNumbers: Constants.containNumbers, unContainNumbers: Constants.unContainNumbers, continuitysNumbers: 1, numbersRange: (Constants.smallesNumber, Constants.largestNumber)))
+    private let faTsaiBrian = FaTsaiBrain(totalNumbersCount: Constants.lotteryNumbersCount, numbersRange: (Constants.smallesNumber, Constants.largestNumber))
 
     @IBOutlet private weak var selectedNumbersLabel: UILabel!
     @IBOutlet private weak var resultLabel: UILabel!
@@ -32,6 +32,14 @@ class ViewController: UIViewController {
 
         spinner.hidesWhenStopped = true
         getResultButton.isEnabled = false
+
+        faTsaiBrianSetup()
+    }
+
+    private func faTsaiBrianSetup() {
+        // TODO: Add additional setup
+        faTsaiBrian.exclusiveNumbers = [6, 13]
+        faTsaiBrian.inclusiveNumbers = [7, 12]
     }
 
     private func showAlert(title: String, message: String) {
@@ -53,7 +61,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func selectNumbersButtonTapped(_ sender: UIButton) {
-        selectedNumbersLabel.text = generator.randomNumbers(between: Constants.smallesNumber, Constants.largestNumber, totalNumbersNeeded: Constants.lotteryNumbersCount, containNumbers: Constants.containNumbers, unContainNumbers: Constants.unContainNumbers).toStringWithComma
+        selectedNumbersLabel.text = faTsaiBrian.randomNumbers().toStringWithComma
 
         getResultButton.isEnabled = true
     }
