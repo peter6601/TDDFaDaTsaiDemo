@@ -8,61 +8,118 @@
 
 import Foundation
 
-class FaTsaiBrain {
+struct FaTsaiBrain {
     
-    private(set) var list: [Int] = []
+    var selectNumbersCount: Int
     
-    init(_ list: [Int]) {
-        self.list = list
-    }
+    var containNumbers: [Int]
     
-    func updateList(_ list: [Int]) {
-        self.list = list
-    }
+    var unContainNumbers: [Int]
     
-    func checkNumbersCount(_ count: Int) -> Bool {
-        guard self.list.count == count else {
+    var continuitysNumbers: Int
+
+    var numbersRange: (first: Int, last: Int)
+    
+    func checkResult( _ list: [Int] ) -> Bool {
+        guard checkNumbersCount(selectNumbersCount, list: list) else {
+            return false
+        }
+        guard checkNumbersRange(first: numbersRange.first, last: numbersRange.last, list: list) else {
+            return false
+        }
+        guard checkNumbersContainNumbers(containNumbers, list: list) else {
+            print("沒有包含數字")
+            return false
+        }
+        guard checkNumbersNotsContainNumbers(containNumbers, list: list) else {
+            print("沒有去掉數字")
+            return false
+        }
+        guard checkNumbersAreContinuitys(continuitysNumbers, list: list) else {
+            print("沒有連號")
             return false
         }
         return true
     }
     
-    func checkNumbersRange(first: Int, last: Int) -> Bool {
+    func checkNumbersCount(_ count: Int, list: [Int]  ) -> Bool {
+        guard list.count == count else {
+            return false
+        }
+        return true
+    }
+    
+    func checkNumbersRange(first: Int, last: Int, list: [Int] ) -> Bool {
         //待實作
+        guard !list.isEmpty else {
+            return false
+        }
+        guard let firstNumber = list.first else {
+            return false
+        }
+        
+        if first > firstNumber {
+            return false
+        }
+        
+        guard let lastNumber = list.last else {
+            return false
+        }
+        
+        if last < lastNumber {
+            return false
+        }
+        
+        return true
+    }
+
+    
+    func checkNumbersContainNumbers(_ numbers: [Int], list: [Int] )-> Bool {
+        var numberList = [Int: Bool]()
+
         for number in list {
-            if first > number {
+            numberList[number] = true
+        }
+        
+        for number in numbers {
+            if  numberList[number] == nil {
                 return false
-            }
-            if last < number {
-                return false
-                
             }
         }
         return true
     }
     
-    //    func checkNumbersAreOdd()-> Bool {
-    //        //待實作
-    //        return false
-    //    }
-    //
-    //    func checkNumbersAreEven()-> Bool {
-    //        //待實作
-    //        return false
-    //    }
-    
-    func checkNumbersContainSpecificNumbers(_ numbers: [Int])-> Bool {
-        //待實作
-        return false
+    func checkNumbersNotsContainNumbers(_ numbers: [Int], list: [Int] )-> Bool {
+        
+        var numberList = [Int: Bool]()
+        for number in list {
+            numberList[number] = true
+        }
+        
+        for number in numbers {
+            if  numberList[number] != nil {
+                return false
+            }
+        }
+        return true
     }
     
-    func checkNumbersNotsContainSpecificNumbers(_ numbers: [Int])-> Bool {
-        //待實作
-        return false
-    }
-    
-    func checkNumbersAreContinuitys(_ number: Int)-> Bool {
-        //待實作
-        return false
+    func checkNumbersAreContinuitys(_ number: Int, list: [Int] )-> Bool {
+        guard !list.isEmpty else {
+            return false
+        }
+        var continuitysCount = 0
+        for index in 1..<list.count {
+            if (list[index-1] + 1) == list[index] {
+                continuitysCount += 1
+            } else {
+                continuitysCount = 0
+            }
+        }
+        if continuitysCount >= number {
+            return true
+        } else {
+            return false
+        }
     }
 }
