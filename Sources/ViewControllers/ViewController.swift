@@ -13,10 +13,12 @@ class ViewController: UIViewController {
     private enum Constants {
         static let lotteryNumbersCount = 6
         static let smallesNumber = 1
-        static let largestNumber = 49
+        static let largestNumber = 38
+        static let containNumbers =  [6,31]
+        static let unContainNumbers = [4,13]
     }
 
-    private let generator = Generator(faTsaiBrain: FaTsaiBrain(selectNumbersCount: Constants.lotteryNumbersCount, containNumbers: [6,31], unContainNumbers: [4,13], continuitysNumbers: 1, numbersRange: (Constants.smallesNumber, Constants.largestNumber)))
+    private let generator = Generator(faTsaiBrain: FaTsaiBrain(selectNumbersCount: Constants.lotteryNumbersCount, containNumbers: Constants.containNumbers, unContainNumbers: Constants.unContainNumbers, continuitysNumbers: 1, numbersRange: (Constants.smallesNumber, Constants.largestNumber)))
 
     @IBOutlet private weak var selectedNumbersLabel: UILabel!
     @IBOutlet private weak var resultLabel: UILabel!
@@ -51,7 +53,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func selectNumbersButtonTapped(_ sender: UIButton) {
-        selectedNumbersLabel.text = generator.randomNumbers(between: Constants.smallesNumber, Constants.largestNumber, totalNumbersNeeded: Constants.lotteryNumbersCount).toStringWithComma
+        selectedNumbersLabel.text = generator.randomNumbers(between: Constants.smallesNumber, Constants.largestNumber, totalNumbersNeeded: Constants.lotteryNumbersCount, containNumbers: Constants.containNumbers, unContainNumbers: Constants.unContainNumbers).toStringWithComma
 
         getResultButton.isEnabled = true
     }
