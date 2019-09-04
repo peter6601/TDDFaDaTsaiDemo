@@ -8,115 +8,105 @@
 
 import Foundation
 
-struct FaTsaiBrain {
+struct ConsecutiveNumbersInfo {
+    var total: Int = 0
+    var start: Int?
+
+    init(total: Int, start: Int? = nil) {
+        self.total = total
+        self.start = start
+    }
+}
+
+final class FaTsaiBrain {
+
+    var totalNumbersCount: Int
+
+    var inclusiveNumbers: [Int] = [Int]()
     
-    var selectNumbersCount: Int
+    var exclusiveNumbers: [Int] = [Int]()
     
-    var containNumbers: [Int]
-    
-    var unContainNumbers: [Int]
-    
-    var continuitysNumbers: Int
+    var consecutiveNumbersInfo: ConsecutiveNumbersInfo? = nil
 
     var numbersRange: (first: Int, last: Int)
-    
-    func checkResult( _ list: [Int] ) -> Bool {
-        guard checkNumbersCount(selectNumbersCount, list: list) else {
-            return false
-        }
-        guard checkNumbersRange(first: numbersRange.first, last: numbersRange.last, list: list) else {
-            return false
-        }
-        guard checkNumbersContainNumbers(containNumbers, list: list) else {
-            return false
-        }
-        guard checkNumbersNotsContainNumbers(unContainNumbers, list: list) else {
-            return false
-        }
-        guard checkNumbersAreContinuitys(continuitysNumbers, list: list) else {
-            return false
-        }
-        return true
-    }
-    
-    func checkNumbersCount(_ count: Int, list: [Int]  ) -> Bool {
-        guard list.count == count else {
-            return false
-        }
-        return true
-    }
-    
-    func checkNumbersRange(first: Int, last: Int, list: [Int] ) -> Bool {
-        //待實作
-        guard !list.isEmpty else {
-            return false
-        }
-        guard let firstNumber = list.first else {
-            return false
-        }
-        
-        if first > firstNumber {
-            return false
-        }
-        
-        guard let lastNumber = list.last else {
-            return false
-        }
-        
-        if last < lastNumber {
-            return false
-        }
-        
-        return true
+
+    init(totalNumbersCount: Int, numbersRange: (first: Int, last: Int)) {
+        self.totalNumbersCount = totalNumbersCount
+        self.numbersRange = numbersRange
+    }    
+
+    private func requiredNumbersInRange() -> Bool {
+        return numbersRange.last - numbersRange.first + 1 >= totalNumbersCount
     }
 
-    
-    func checkNumbersContainNumbers(_ numbers: [Int], list: [Int] )-> Bool {
-        var numberList = [Int: Bool]()
+    private func consecutiveNumbers() -> Set<Int> {
+        // Doesn't accept negative integer
+        guard let info = consecutiveNumbersInfo,
+            info.total > 0 else {
+            return []
+        }
 
-        for number in list {
-            numberList[number] = true
-        }
-        
-        for number in numbers {
-            if  numberList[number] == nil {
-                return false
+        // If has starting number
+        // check if its within range
+        // start has to be greater or equal the first number
+        // start has to be less than the last number
+        // check if the next one is within range
+
+        var result = Set<Int>()
+
+        if let start = info.start,
+            start >= numbersRange.first,
+            start < numbersRange.last {
+
+            for i in start...start+info.total {
+                result.insert(i)
             }
+            return result
         }
-        return true
+
+        for i in 0..<info.total {
+            result.insert(numbersRange.first + i)
+        }
+
+        return result
     }
-    
-    func checkNumbersNotsContainNumbers(_ numbers: [Int], list: [Int] )-> Bool {
-        
-        var numberList = [Int: Bool]()
-        for number in list {
-            numberList[number] = true
+}
+
+extension FaTsaiBrain {
+    func randomNumbers() -> [Int] {
+        guard requiredNumbersInRange() else {
+            return []
         }
-        
-        for number in numbers {
-            if  numberList[number] != nil {
-                return false
+
+        let inclusiveNumbersSet = Set(inclusiveNumbers)
+        let exclusiveNumbersSet = Set(exclusiveNumbers)
+
+        // This is to ensure that no inclusive numbers are in exclusive numbers
+        // We can take this off
+//        if inclusiveNumbersSet.count < exclusiveNumbersSet.count {
+            // O(N)
+        for num in inclusiveNumbersSet {
+            // Set O(1)
+            // Array O(N)
+            if exclusiveNumbersSet.contains(num) {                
+                return []
             }
         }
-        return true
-    }
-    
-    func checkNumbersAreContinuitys(_ number: Int, list: [Int] )-> Bool {
-        guard !list.isEmpty else {
-            return false
+//        }
+
+        var result = inclusiveNumbersSet.union(consecutiveNumbers())
+
+        if result.count > totalNumbersCount {
+            return []
         }
-        var continuitysCount = 0
-        for index in 1..<list.count {
-            if (list[index-1] + 1) == list[index] {
-                continuitysCount += 1
-            } else {
-                continuitysCount = 0
+
+        while result.count < totalNumbersCount {
+            let randomInt = Int.random(in: numbersRange.first...numbersRange.last)
+            if !exclusiveNumbersSet.contains(randomInt) {
+                result.insert(randomInt)
             }
         }
-        if continuitysCount >= number {
-            return true
-        } else {
-            return false
-        }
+
+        return Array(result).sorted()
     }
 }
