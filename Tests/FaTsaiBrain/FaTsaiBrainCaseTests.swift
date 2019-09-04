@@ -10,24 +10,32 @@ import XCTest
 
 class FaTsaiBrainCaseTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    let faTasiList = [2,6,29,31,36,37]
+    
+    var faTsaiBrain = FaTsaiBrain(totalNumbersCount: 6, numbersRange: (1,38))
+    
+    func testNumbersCount() {
+        XCTAssert(faTsaiBrain.randomNumbers().count == 6)
     }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testInclusiveNumbers() {
+        faTsaiBrain.inclusiveNumbers = [2, 31]
+        XCTAssert(faTsaiBrain.randomNumbers().contains(2))
+        XCTAssert(faTsaiBrain.randomNumbers().contains(31))
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testExclusiveNumbers() {
+        faTsaiBrain.exclusiveNumbers = [4, 13]
+        XCTAssert(!faTsaiBrain.randomNumbers().contains(4))
+        XCTAssert(!faTsaiBrain.randomNumbers().contains(13))
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testConsecutiveNumbers() {
+        faTsaiBrain.consecutiveNumbersInfo = ConsecutiveNumbersInfo(total: 2, start: 36)
+        XCTAssert(faTsaiBrain.randomNumbers().contains(36))
+        XCTAssert(faTsaiBrain.randomNumbers().contains(37))
     }
+    
+    
 
 }

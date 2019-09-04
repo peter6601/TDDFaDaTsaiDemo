@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3E55B9231F5C580008A597 /* FaTsaiBrainCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3E55B8231F5C580008A597 /* FaTsaiBrainCaseTests.swift */; };
 		2D5F494F230B93380019B968 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F494E230B93380019B968 /* AppDelegate.swift */; };
 		2D5F4951230B93380019B968 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F4950230B93380019B968 /* ViewController.swift */; };
 		2D5F4954230B93380019B968 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D5F4952230B93380019B968 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D3E55B8231F5C580008A597 /* FaTsaiBrainCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaTsaiBrainCaseTests.swift; sourceTree = "<group>"; };
 		2D5F494B230B93380019B968 /* TDDFaDaTsaiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TDDFaDaTsaiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5F494E230B93380019B968 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D5F4950230B93380019B968 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 		E3F622B4231ECD4C00CBA504 /* FaTsaiBrain */ = {
 			isa = PBXGroup;
 			children = (
+				2D3E55B8231F5C580008A597 /* FaTsaiBrainCaseTests.swift */,
 				E3F622B5231ECD7700CBA504 /* FaTsaiBrainTests.swift */,
 			);
 			path = FaTsaiBrain;
@@ -335,6 +338,7 @@
 				2D5F497C230B94160019B968 /* ViewController.swift in Sources */,
 				E313D2E6231245C700727FD1 /* FaDaTsaiResult.swift in Sources */,
 				E3F622B6231ECD7700CBA504 /* FaTsaiBrainTests.swift in Sources */,
+				2D3E55B9231F5C580008A597 /* FaTsaiBrainCaseTests.swift in Sources */,
 				E313D2E5231245C400727FD1 /* FaDaTsaiAPI.swift in Sources */,
 				E313D2E7231245CF00727FD1 /* NetworkingService.swift in Sources */,
 				E313D2D4230EDAEA00727FD1 /* Array+ToString.swift in Sources */,
