@@ -30,4 +30,16 @@ class FaTsaiBrainTests: XCTestCase {
         XCTAssertTrue(faTsaiBrain.randomNumbers().contains(4))
     }
 
+    func testExclusiveNumbersContainInclusiveNumbers() {
+        faTsaiBrain.inclusiveNumbers = [1, 2]
+        faTsaiBrain.exclusiveNumbers = [1, 2]
+        XCTAssertEqual(faTsaiBrain.randomNumbers(), [])
+    }
+
+    func testExceedInclusiveNumbersPlusConsecutiveNumbersCount() {
+        faTsaiBrain.inclusiveNumbers = [1, 2, 3]
+        faTsaiBrain.consecutiveNumbersInfo = ConsecutiveNumbersInfo(total: 5, start: 4)
+        XCTAssertEqual(faTsaiBrain.randomNumbers(), [])
+    }
+
 }

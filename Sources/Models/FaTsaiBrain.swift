@@ -42,8 +42,7 @@ final class FaTsaiBrain {
     private func consecutiveNumbers() -> Set<Int> {
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
-            info.total > 0,
-            info.total <= totalNumbersCount else {
+            info.total > 0 else {
             return []
         }
 
@@ -84,13 +83,16 @@ extension FaTsaiBrain {
 
         // This is to ensure that no inclusive numbers are in exclusive numbers
         // We can take this off
-        if inclusiveNumbersSet.count < exclusiveNumbersSet.count {
-            for num in inclusiveNumbersSet {
-                if exclusiveNumbersSet.contains(num) {
-                    return []
-                }
+//        if inclusiveNumbersSet.count < exclusiveNumbersSet.count {
+            // O(N)
+        for num in inclusiveNumbersSet {
+            // Set O(1)
+            // Array O(N)
+            if exclusiveNumbersSet.contains(num) {                
+                return []
             }
         }
+//        }
 
         var result = inclusiveNumbersSet.union(consecutiveNumbers())
 
