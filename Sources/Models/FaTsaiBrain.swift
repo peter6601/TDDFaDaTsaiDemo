@@ -44,6 +44,19 @@ final class FaTsaiBrain {
         let list = fistList.intersection(sencondList)
         return !list.isEmpty
     }
+    
+    private func numbersInRange(_ numbers: [Int], numbersRange: (first: Int, last: Int)) -> Bool {
+        for number in numbers {
+            if number < numbersRange.first {
+                return false
+            }
+            if number > numbersRange.last {
+                return false
+            }
+        }
+        return true
+    }
+    
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
             info.total > 0 else {
