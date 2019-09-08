@@ -63,9 +63,10 @@ final class FaTsaiBrain {
             }
             return result
         }
-
-        for i in 0..<info.total {
-            result.insert(numbersRange.first + i)
+        
+        let randomStart =  Int.random(in: numbersRange.first...(numbersRange.last - info.total))
+        for i in randomStart..<(randomStart + info.total) {
+            result.insert(i)
         }
 
         return result
