@@ -33,13 +33,52 @@ final class FaTsaiBrain {
     init(totalNumbersCount: Int, numbersRange: (first: Int, last: Int)) {
         self.totalNumbersCount = totalNumbersCount
         self.numbersRange = numbersRange
-    }    
+    }
+    
+    func randomNumbers() -> [Int] {
+        
+        guard requiredNumbersInRange() else {
+            return []
+        }
+        guard numbersInRange(inclusiveNumbers, numbersRange: (numbersRange.first, numbersRange.last)) else {
+            return []
+        }
+        
+        guard numbersInRange(exclusiveNumbers, numbersRange: (numbersRange.first, numbersRange.last)) else {
+            return []
+        }
+        
+        let inclusiveNumbersSet = Set(inclusiveNumbers)
+        let exclusiveNumbersSet = Set(exclusiveNumbers)
+        
+        
+        var result = inclusiveNumbersSet.union(consecutiveNumbers(numbersRange: (first: numbersRange.first, last: numbersRange.last)))
+        
+        guard result.count <= totalNumbersCount else {
+            return []
+        }
+        
+        guard !compareInclusiveNumebr(result, with: exclusiveNumbersSet) else {
+            return []
+        }
+        
+        while result.count < totalNumbersCount {
+            let randomInt = Int.random(in: numbersRange.first...numbersRange.last)
+            if !exclusiveNumbersSet.contains(randomInt) {
+                result.insert(randomInt)
+            }
+        }
+        return Array(result).sorted()
+    }
+}
 
+extension FaTsaiBrain {
+   
     private func requiredNumbersInRange() -> Bool {
         return numbersRange.last - numbersRange.first + 1 >= totalNumbersCount
     }
-
-    private func consecutiveNumbers() -> Set<Int> {
+    
+    
     private func compareInclusiveNumebr(_ fistList: Set<Int>, with sencondList: Set<Int>) -> Bool {
         let list = fistList.intersection(sencondList)
         return !list.isEmpty
@@ -57,24 +96,25 @@ final class FaTsaiBrain {
         return true
     }
     
+    private func consecutiveNumbers(numbersRange: (first: Int, last: Int)) -> Set<Int> {
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
             info.total > 0 else {
-            return []
+                return []
         }
-
+        
         // If has starting number
         // check if its within range
         // start has to be greater or equal the first number
         // start has to be less than the last number
         // check if the next one is within range
-
+        
         var result = Set<Int>()
-
+        
         if let start = info.start,
             start >= numbersRange.first,
             start < numbersRange.last {
-
+            
             for i in start...start+info.total {
                 result.insert(i)
             }
@@ -85,46 +125,6 @@ final class FaTsaiBrain {
         for i in randomStart..<(randomStart + info.total) {
             result.insert(i)
         }
-
         return result
-    }
-}
-
-extension FaTsaiBrain {
-    func randomNumbers() -> [Int] {
-        guard requiredNumbersInRange() else {
-            return []
-        }
-
-        let inclusiveNumbersSet = Set(inclusiveNumbers)
-        let exclusiveNumbersSet = Set(exclusiveNumbers)
-
-        // This is to ensure that no inclusive numbers are in exclusive numbers
-        // We can take this off
-//        if inclusiveNumbersSet.count < exclusiveNumbersSet.count {
-            // O(N)
-        for num in inclusiveNumbersSet {
-            // Set O(1)
-            // Array O(N)
-            if exclusiveNumbersSet.contains(num) {                
-                return []
-            }
-        }
-//        }
-
-        var result = inclusiveNumbersSet.union(consecutiveNumbers())
-
-        if result.count > totalNumbersCount {
-            return []
-        }
-
-        while result.count < totalNumbersCount {
-            let randomInt = Int.random(in: numbersRange.first...numbersRange.last)
-            if !exclusiveNumbersSet.contains(randomInt) {
-                result.insert(randomInt)
-            }
-        }
-
-        return Array(result).sorted()
     }
 }
