@@ -40,6 +40,10 @@ final class FaTsaiBrain {
     }
 
     private func consecutiveNumbers() -> Set<Int> {
+    private func compareInclusiveNumebr(_ fistList: Set<Int>, with sencondList: Set<Int>) -> Bool {
+        let list = fistList.intersection(sencondList)
+        return !list.isEmpty
+    }
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
             info.total > 0 else {
