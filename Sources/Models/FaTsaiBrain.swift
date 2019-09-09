@@ -12,6 +12,8 @@ final class FaTsaiBrain {
 
     var totalNumbersCount: Int
 
+    var inclusiveNumbers: [Int] = [Int]()
+
     var numbersRange: (first: Int, last: Int)
 
     init(totalNumbersCount: Int, numbersRange: (first: Int, last: Int)) {

@@ -23,4 +23,20 @@ class FaTsaiBrainTests: XCTestCase {
         faTsaiBrain.totalNumbersCount = 6
         XCTAssertTrue(faTsaiBrain.randomNumbers().isEmpty)
     }
+
+    func testInclusiveNumbers() {
+        faTsaiBrain.inclusiveNumbers = [2]
+        XCTAssertTrue(faTsaiBrain.randomNumbers().contains(2))
+    }
+
+    func testInclusiveNumbersOutOfUpperRange() {
+        faTsaiBrain.inclusiveNumbers = [12]
+        XCTAssertTrue(faTsaiBrain.randomNumbers().isEmpty)
+    }
+
+    func testInclusiveNumbersOutOfLowerRange() {
+        faTsaiBrain.inclusiveNumbers = [0]
+        XCTAssertTrue(faTsaiBrain.randomNumbers().isEmpty)
+    }
+
 }
