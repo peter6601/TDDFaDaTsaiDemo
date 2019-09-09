@@ -30,11 +30,20 @@ final class FaTsaiBrain {
         guard isNumbersInRange(with: inclusiveNumbers) else {
             return []
         }
+        guard isNumbersInRange(with: exclusiveNumbers) else {
+            return []
+        }
         let inclusiveNumbersSet = Set(inclusiveNumbers)
+        let exclusiveNumbersSet = Set(exclusiveNumbers)
         var result = inclusiveNumbersSet
+        guard !isInclusiveNumbersInExclusiveNumbers() else {
+            return []
+        }
         while result.count < totalNumbersCount {
             let randomInt = Int.random(in: numbersRange.first...numbersRange.last)
+            if !exclusiveNumbersSet.contains(randomInt) {
                 result.insert(randomInt)
+            }
         }
         return Array(result).sorted()
     }
@@ -57,6 +66,14 @@ extension FaTsaiBrain {
         }
         return true
     }
+
+    private func isInclusiveNumbersInExclusiveNumbers() -> Bool {
+        let inclusiveNumbersSet = Set(inclusiveNumbers)
+        let exclusiveNumbersSet = Set(exclusiveNumbers)
+        let list = inclusiveNumbersSet.intersection(exclusiveNumbersSet)
+        return !list.isEmpty
+    }
+
 
 
 }
