@@ -38,5 +38,22 @@ class FaTsaiBrainTests: XCTestCase {
         faTsaiBrain.inclusiveNumbers = [0]
         XCTAssertTrue(faTsaiBrain.randomNumbers().isEmpty)
     }
+    
+    func testExclusiveNumbers() {
+        faTsaiBrain.exclusiveNumbers = [3]
+        XCTAssertTrue(!faTsaiBrain.randomNumbers().contains(3))
+    }
+
+    func testExclusiveNumbersOutOfRange() {
+        faTsaiBrain.exclusiveNumbers = [13]
+        XCTAssertTrue(faTsaiBrain.randomNumbers().isEmpty)
+    }
+
+    func testExclusiveNumbersContainInclusiveNumbers() {
+        faTsaiBrain.inclusiveNumbers = [1, 2]
+        faTsaiBrain.exclusiveNumbers = [1, 2]
+        XCTAssertEqual(faTsaiBrain.randomNumbers(), [])
+    }
+
 
 }
