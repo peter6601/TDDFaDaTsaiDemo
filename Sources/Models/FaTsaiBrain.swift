@@ -11,7 +11,7 @@ import Foundation
 struct ConsecutiveNumbersInfo {
     var total: Int = 0
     var start: Int?
-    
+
     init(total: Int, start: Int? = nil) {
         self.total = total
         self.start = start
@@ -19,22 +19,22 @@ struct ConsecutiveNumbersInfo {
 }
 
 final class FaTsaiBrain {
-    
+
     var totalNumbersCount: Int
-    
+
     var inclusiveNumbers: [Int] = [Int]()
-    
+
     var exclusiveNumbers: [Int] = [Int]()
-    
+
     var consecutiveNumbersInfo: ConsecutiveNumbersInfo? = nil
-    
+
     var numbersRange: (first: Int, last: Int)
-    
+
     init(totalNumbersCount: Int, numbersRange: (first: Int, last: Int)) {
         self.totalNumbersCount = totalNumbersCount
         self.numbersRange = numbersRange
     }
-    
+
     func randomNumbers() -> [Int] {
         guard requiredNumbersInRange() else {
             return []
@@ -65,18 +65,18 @@ final class FaTsaiBrain {
 }
 
 extension FaTsaiBrain {
-    
+
     private func requiredNumbersInRange() -> Bool {
         return numbersRange.last - numbersRange.first + 1 >= totalNumbersCount
     }
-    
+
     private func isInclusiveNumbersInExclusiveNumbers() -> Bool {
         let inclusiveNumbersSet = Set(inclusiveNumbers)
         let exclusiveNumbersSet = Set(exclusiveNumbers)
         let list = inclusiveNumbersSet.intersection(exclusiveNumbersSet)
         return !list.isEmpty
     }
-    
+
     private func isNumbersInRange(with numbers: [Int]) -> Bool {
         for number in numbers {
             if number < numbersRange.first {
@@ -88,7 +88,7 @@ extension FaTsaiBrain {
         }
         return true
     }
-    
+
     private func consecutiveNumbers() -> Set<Int> {
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
