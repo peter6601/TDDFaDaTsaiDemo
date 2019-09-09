@@ -16,7 +16,6 @@ class FaTsaiBrainTests: XCTestCase {
     func testRequiredNumbersnInRange() {
         XCTAssertTrue(faTsaiBrain.randomNumbers().last! < 11)
         XCTAssertTrue(faTsaiBrain.randomNumbers().first! > 0)
-
     }
     
     func testRequiredNumbersNotInRange() {
@@ -61,7 +60,6 @@ class FaTsaiBrainTests: XCTestCase {
         XCTAssertTrue(faTsaiBrain.randomNumbers().contains(3))
         XCTAssertTrue(faTsaiBrain.randomNumbers().contains(4))
     }
-    
 
     func testExceedInclusiveNumbersPlusConsecutiveNumbersCount() {
         faTsaiBrain.inclusiveNumbers = [1, 2, 3]

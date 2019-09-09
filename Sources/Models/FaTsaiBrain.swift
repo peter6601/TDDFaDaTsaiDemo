@@ -11,7 +11,7 @@ import Foundation
 struct ConsecutiveNumbersInfo {
     var total: Int = 0
     var start: Int?
-
+    
     init(total: Int, start: Int? = nil) {
         self.total = total
         self.start = start
@@ -19,24 +19,23 @@ struct ConsecutiveNumbersInfo {
 }
 
 final class FaTsaiBrain {
-
+    
     var totalNumbersCount: Int
-
+    
     var inclusiveNumbers: [Int] = [Int]()
     
     var exclusiveNumbers: [Int] = [Int]()
     
     var consecutiveNumbersInfo: ConsecutiveNumbersInfo? = nil
-
+    
     var numbersRange: (first: Int, last: Int)
-
+    
     init(totalNumbersCount: Int, numbersRange: (first: Int, last: Int)) {
         self.totalNumbersCount = totalNumbersCount
         self.numbersRange = numbersRange
     }
     
     func randomNumbers() -> [Int] {
-        
         guard requiredNumbersInRange() else {
             return []
         }
@@ -47,7 +46,6 @@ final class FaTsaiBrain {
         guard numbersInRange(exclusiveNumbers, numbersRange: (numbersRange.first, numbersRange.last)) else {
             return []
         }
-        
         let inclusiveNumbersSet = Set(inclusiveNumbers)
         let exclusiveNumbersSet = Set(exclusiveNumbers)
         
@@ -61,7 +59,6 @@ final class FaTsaiBrain {
         guard !compareInclusiveNumebr(result, with: exclusiveNumbersSet) else {
             return []
         }
-        
         while result.count < totalNumbersCount {
             let randomInt = Int.random(in: numbersRange.first...numbersRange.last)
             if !exclusiveNumbersSet.contains(randomInt) {
@@ -73,7 +70,7 @@ final class FaTsaiBrain {
 }
 
 extension FaTsaiBrain {
-   
+    
     private func requiredNumbersInRange() -> Bool {
         return numbersRange.last - numbersRange.first + 1 >= totalNumbersCount
     }
@@ -100,21 +97,17 @@ extension FaTsaiBrain {
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
             info.total > 0 else {
-                return []
+            return []
         }
-        
         // If has starting number
         // check if its within range
         // start has to be greater or equal the first number
         // start has to be less than the last number
         // check if the next one is within range
-        
         var result = Set<Int>()
-        
         if let start = info.start,
             start >= numbersRange.first,
             start < numbersRange.last {
-            
             for i in start...start+info.total {
                 result.insert(i)
             }
