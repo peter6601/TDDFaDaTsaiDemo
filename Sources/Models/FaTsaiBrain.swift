@@ -39,24 +39,19 @@ final class FaTsaiBrain {
         guard requiredNumbersInRange() else {
             return []
         }
-        guard numbersInRange(inclusiveNumbers, numbersRange: (numbersRange.first, numbersRange.last)) else {
+        guard isNumbersInRange(with: inclusiveNumbers) else {
             return []
         }
-        
-        guard numbersInRange(exclusiveNumbers, numbersRange: (numbersRange.first, numbersRange.last)) else {
+        guard isNumbersInRange(with: exclusiveNumbers) else {
             return []
         }
         let inclusiveNumbersSet = Set(inclusiveNumbers)
         let exclusiveNumbersSet = Set(exclusiveNumbers)
-        
-        
-        var result = inclusiveNumbersSet.union(consecutiveNumbers(numbersRange: (first: numbersRange.first, last: numbersRange.last)))
-        
+        var result = inclusiveNumbersSet.union(consecutiveNumbers())
         guard result.count <= totalNumbersCount else {
             return []
         }
-        
-        guard !compareInclusiveNumebr(result, with: exclusiveNumbersSet) else {
+        guard !isInclusiveNumbersInExclusiveNumbers() else {
             return []
         }
         while result.count < totalNumbersCount {
@@ -75,13 +70,14 @@ extension FaTsaiBrain {
         return numbersRange.last - numbersRange.first + 1 >= totalNumbersCount
     }
     
-    
-    private func compareInclusiveNumebr(_ fistList: Set<Int>, with sencondList: Set<Int>) -> Bool {
-        let list = fistList.intersection(sencondList)
+    private func isInclusiveNumbersInExclusiveNumbers() -> Bool {
+        let inclusiveNumbersSet = Set(inclusiveNumbers)
+        let exclusiveNumbersSet = Set(exclusiveNumbers)
+        let list = inclusiveNumbersSet.intersection(exclusiveNumbersSet)
         return !list.isEmpty
     }
     
-    private func numbersInRange(_ numbers: [Int], numbersRange: (first: Int, last: Int)) -> Bool {
+    private func isNumbersInRange(with numbers: [Int]) -> Bool {
         for number in numbers {
             if number < numbersRange.first {
                 return false
@@ -93,7 +89,7 @@ extension FaTsaiBrain {
         return true
     }
     
-    private func consecutiveNumbers(numbersRange: (first: Int, last: Int)) -> Set<Int> {
+    private func consecutiveNumbers() -> Set<Int> {
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
             info.total > 0 else {
@@ -113,8 +109,7 @@ extension FaTsaiBrain {
             }
             return result
         }
-        
-        let randomStart =  Int.random(in: numbersRange.first...(numbersRange.last - info.total))
+        let randomStart =  Int.random(in: numbersRange.first...numbersRange.last)
         for i in randomStart..<(randomStart + info.total) {
             result.insert(i)
         }
