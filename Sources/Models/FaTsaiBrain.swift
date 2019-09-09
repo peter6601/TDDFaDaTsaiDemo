@@ -8,6 +8,16 @@
 
 import Foundation
 
+struct ConsecutiveNumbersInfo {
+    var total: Int = 0
+    var start: Int?
+
+    init(total: Int, start: Int? = nil) {
+        self.total = total
+        self.start = start
+    }
+}
+
 final class FaTsaiBrain {
 
     var totalNumbersCount: Int
@@ -15,6 +25,8 @@ final class FaTsaiBrain {
     var inclusiveNumbers: [Int] = [Int]()
 
     var exclusiveNumbers: [Int] = [Int]()
+
+    var consecutiveNumbersInfo: ConsecutiveNumbersInfo? = nil
 
     var numbersRange: (first: Int, last: Int)
 
