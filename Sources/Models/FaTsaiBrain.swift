@@ -47,7 +47,10 @@ final class FaTsaiBrain {
         }
         let inclusiveNumbersSet = Set(inclusiveNumbers)
         let exclusiveNumbersSet = Set(exclusiveNumbers)
-        var result = inclusiveNumbersSet
+        var result = inclusiveNumbersSet.union(consecutiveNumbers())
+        guard result.count <= totalNumbersCount else {
+            return []
+        }
         guard !isInclusiveNumbersInExclusiveNumbers() else {
             return []
         }
@@ -86,6 +89,25 @@ extension FaTsaiBrain {
         return !list.isEmpty
     }
 
-
-
+    private func consecutiveNumbers() -> Set<Int> {
+        // Doesn't accept negative integer
+        guard let info = consecutiveNumbersInfo,
+            info.total > 0 else {
+                return []
+        }
+        var result = Set<Int>()
+        if let start = info.start,
+            start >= numbersRange.first,
+            start < numbersRange.last {
+            for i in start...start+info.total {
+                result.insert(i)
+            }
+            return result
+        }
+        let randomStart =  Int.random(in: numbersRange.first...numbersRange.last)
+        for i in randomStart..<(randomStart + info.total) {
+            result.insert(i)
+        }
+        return result
+    }
 }
