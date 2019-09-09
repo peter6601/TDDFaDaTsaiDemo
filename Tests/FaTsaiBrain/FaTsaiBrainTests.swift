@@ -72,7 +72,7 @@ class FaTsaiBrainTests: XCTestCase {
         XCTAssert(faTsaiBrain.randomNumbers().last! < 11)
     }
     
-    func testConsecutiveNumberssOutOfRange() {
+    func testConsecutiveNumbersOutOfRange() {
         faTsaiBrain.consecutiveNumbersInfo = ConsecutiveNumbersInfo(total: 4)
         XCTAssert(faTsaiBrain.randomNumbers().isEmpty)
     }
