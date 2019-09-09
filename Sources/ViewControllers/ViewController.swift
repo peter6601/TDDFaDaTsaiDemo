@@ -36,9 +36,7 @@ class ViewController: UIViewController {
 
     private func faTsaiBrianSetup() {
         // TODO: Add additional setup
-        faTsaiBrian.exclusiveNumbers = [6, 13]
-        faTsaiBrian.inclusiveNumbers = [7, 12]
-        faTsaiBrian.consecutiveNumbersInfo = ConsecutiveNumbersInfo(total: 3, start: nil)
+
     }
 
     private func showAlert(title: String, message: String) {
