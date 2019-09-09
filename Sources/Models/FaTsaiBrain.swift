@@ -20,6 +20,22 @@ final class FaTsaiBrain {
     }
 
     func randomNumbers() -> [Int] {
-        return []
+        guard requiredNumbersInRange() else {
+            return []
+        }
+        var result = Set<Int>()
+        while result.count < totalNumbersCount {
+            let randomInt = Int.random(in: numbersRange.first...numbersRange.last)
+                result.insert(randomInt)
+        }
+        return Array(result).sorted()
     }
+}
+
+extension FaTsaiBrain {
+
+    private func requiredNumbersInRange() -> Bool {
+        return numbersRange.last - numbersRange.first + 1 >= totalNumbersCount
+    }
+
 }
