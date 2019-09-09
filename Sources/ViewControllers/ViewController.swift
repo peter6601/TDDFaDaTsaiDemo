@@ -60,11 +60,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func selectNumbersButtonTapped(_ sender: UIButton) {
-       var numberString = ""
-        while numberString.isEmpty {
-            numberString = faTsaiBrian.randomNumbers().toStringWithComma
-        }
-        selectedNumbersLabel.text = numberString
+        selectedNumbersLabel.text = faTsaiBrian.randomNumbers().toStringWithComma
         getResultButton.isEnabled = true
     }
 
