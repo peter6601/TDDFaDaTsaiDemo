@@ -14,8 +14,6 @@ class ViewController: UIViewController {
         static let lotteryNumbersCount = 6
         static let smallesNumber = 1
         static let largestNumber = 38
-        static let containNumbers = [6,31]
-        static let unContainNumbers = [4,13]
     }
 
     private let faTsaiBrian = FaTsaiBrain(totalNumbersCount: Constants.lotteryNumbersCount, numbersRange: (Constants.smallesNumber, Constants.largestNumber))
@@ -63,7 +61,6 @@ class ViewController: UIViewController {
 
     @IBAction private func selectNumbersButtonTapped(_ sender: UIButton) {
         selectedNumbersLabel.text = faTsaiBrian.randomNumbers().toStringWithComma
-
         getResultButton.isEnabled = true
     }
 
