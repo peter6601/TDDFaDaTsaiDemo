@@ -25,7 +25,11 @@ final class FaTsaiBrain {
         guard requiredNumbersInRange() else {
             return []
         }
-        var result = Set<Int>()
+        guard isNumbersInRange(with: inclusiveNumbers) else {
+            return []
+        }
+        let inclusiveNumbersSet = Set(inclusiveNumbers)
+        var result = inclusiveNumbersSet
         while result.count < totalNumbersCount {
             let randomInt = Int.random(in: numbersRange.first...numbersRange.last)
                 result.insert(randomInt)
@@ -39,5 +43,18 @@ extension FaTsaiBrain {
     private func requiredNumbersInRange() -> Bool {
         return numbersRange.last - numbersRange.first + 1 >= totalNumbersCount
     }
+
+    private func isNumbersInRange(with numbers: [Int]) -> Bool {
+        for number in numbers {
+            if number < numbersRange.first {
+                return false
+            }
+            if number > numbersRange.last {
+                return false
+            }
+        }
+        return true
+    }
+
 
 }
