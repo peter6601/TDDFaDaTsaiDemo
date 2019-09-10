@@ -18,6 +18,8 @@ class ViewController: UIViewController {
 
     private let faTsaiBrian = FaTsaiBrain(totalNumbersCount: Constants.lotteryNumbersCount, numbersRange: (Constants.smallesNumber, Constants.largestNumber))
 
+    private let viewModel = FaTsaiViewModel()
+
     @IBOutlet private weak var selectedNumbersLabel: UILabel!
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var getResultButton: UIButton!
@@ -32,6 +34,8 @@ class ViewController: UIViewController {
         getResultButton.isEnabled = false
 
         faTsaiBrianSetup()
+
+        viewModel.delegate = self
     }
 
     private func faTsaiBrianSetup() {
@@ -89,3 +93,6 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: FaTsaiViewModelDelegate {
+
+}
