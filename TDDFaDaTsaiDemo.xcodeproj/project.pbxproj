@@ -23,6 +23,8 @@
 		E313D2E6231245C700727FD1 /* FaDaTsaiResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88937230D75E5009256BA /* FaDaTsaiResult.swift */; };
 		E313D2E7231245CF00727FD1 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88930230D6FBC009256BA /* NetworkingService.swift */; };
 		E3485D0D2327E754003C5D80 /* FaTsaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3485D0C2327E754003C5D80 /* FaTsaiViewModel.swift */; };
+		E3485D102327E938003C5D80 /* FaTsaiViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3485D0F2327E938003C5D80 /* FaTsaiViewModelTests.swift */; };
+		E3485D112327E980003C5D80 /* FaTsaiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3485D0C2327E754003C5D80 /* FaTsaiViewModel.swift */; };
 		E3560D97231249910019B2C7 /* FaDaTsaiResult.json in Resources */ = {isa = PBXBuildFile; fileRef = E313D2E92312461600727FD1 /* FaDaTsaiResult.json */; };
 		E3560D98231249940019B2C7 /* FaDaTsaiInvalidResult.json in Resources */ = {isa = PBXBuildFile; fileRef = E313D2E82312461600727FD1 /* FaDaTsaiInvalidResult.json */; };
 		E3C88931230D6FBC009256BA /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C88930230D6FBC009256BA /* NetworkingService.swift */; };
@@ -59,6 +61,7 @@
 		E313D2E82312461600727FD1 /* FaDaTsaiInvalidResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FaDaTsaiInvalidResult.json; sourceTree = "<group>"; };
 		E313D2E92312461600727FD1 /* FaDaTsaiResult.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = FaDaTsaiResult.json; sourceTree = "<group>"; };
 		E3485D0C2327E754003C5D80 /* FaTsaiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaTsaiViewModel.swift; sourceTree = "<group>"; };
+		E3485D0F2327E938003C5D80 /* FaTsaiViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaTsaiViewModelTests.swift; sourceTree = "<group>"; };
 		E3C88930230D6FBC009256BA /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		E3C88934230D7595009256BA /* FaDaTsaiAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaDaTsaiAPI.swift; sourceTree = "<group>"; };
 		E3C88937230D75E5009256BA /* FaDaTsaiResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaDaTsaiResult.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 				E313D2D2230EDADC00727FD1 /* Extensions */,
 				E3F622B4231ECD4C00CBA504 /* FaTsaiBrain */,
 				E313D2DB2312440700727FD1 /* Models */,
+				E3485D0E2327E911003C5D80 /* ViewModels */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -158,6 +162,14 @@
 			isa = PBXGroup;
 			children = (
 				E3485D0C2327E754003C5D80 /* FaTsaiViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E3485D0E2327E911003C5D80 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E3485D0F2327E938003C5D80 /* FaTsaiViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -349,7 +361,9 @@
 				E3F622B6231ECD7700CBA504 /* FaTsaiBrainTests.swift in Sources */,
 				E313D2E5231245C400727FD1 /* FaDaTsaiAPI.swift in Sources */,
 				E313D2E7231245CF00727FD1 /* NetworkingService.swift in Sources */,
+				E3485D112327E980003C5D80 /* FaTsaiViewModel.swift in Sources */,
 				E313D2D4230EDAEA00727FD1 /* Array+ToString.swift in Sources */,
+				E3485D102327E938003C5D80 /* FaTsaiViewModelTests.swift in Sources */,
 				E313D2DA230EDD7400727FD1 /* ArrayExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
