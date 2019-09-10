@@ -93,7 +93,7 @@ extension FaTsaiBrain {
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
             info.total > 0 else {
-                return []
+            return []
         }
         var result = Set<Int>()
         if let start = info.start,

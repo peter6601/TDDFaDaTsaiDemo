@@ -38,7 +38,7 @@ class FaTsaiBrainTests: XCTestCase {
         faTsaiBrain.inclusiveNumbers = [0]
         XCTAssertTrue(faTsaiBrain.randomNumbers().isEmpty)
     }
-    
+
     func testExclusiveNumbers() {
         faTsaiBrain.exclusiveNumbers = [3]
         XCTAssertTrue(!faTsaiBrain.randomNumbers().contains(3))
