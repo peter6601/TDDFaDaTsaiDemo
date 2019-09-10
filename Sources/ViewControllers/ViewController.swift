@@ -18,6 +18,8 @@ class ViewController: UIViewController {
 
     private let faTsaiBrian = FaTsaiBrain(totalNumbersCount: Constants.lotteryNumbersCount, numbersRange: (Constants.smallesNumber, Constants.largestNumber))
 
+    private let viewModel = FaTsaiViewModel()
+
     @IBOutlet private weak var selectedNumbersLabel: UILabel!
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var getResultButton: UIButton!
@@ -32,13 +34,13 @@ class ViewController: UIViewController {
         getResultButton.isEnabled = false
 
         faTsaiBrianSetup()
+
+        viewModel.delegate = self
     }
 
     private func faTsaiBrianSetup() {
         // TODO: Add additional setup
-        faTsaiBrian.exclusiveNumbers = [6, 13]
-        faTsaiBrian.inclusiveNumbers = [7, 12]
-        faTsaiBrian.consecutiveNumbersInfo = ConsecutiveNumbersInfo(total: 3, start: nil)
+
     }
 
     private func showAlert(title: String, message: String) {
@@ -91,3 +93,6 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: FaTsaiViewModelDelegate {
+
+}

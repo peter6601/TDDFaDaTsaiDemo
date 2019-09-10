@@ -70,13 +70,6 @@ extension FaTsaiBrain {
         return numbersRange.last - numbersRange.first + 1 >= totalNumbersCount
     }
 
-    private func isInclusiveNumbersInExclusiveNumbers() -> Bool {
-        let inclusiveNumbersSet = Set(inclusiveNumbers)
-        let exclusiveNumbersSet = Set(exclusiveNumbers)
-        let list = inclusiveNumbersSet.intersection(exclusiveNumbersSet)
-        return !list.isEmpty
-    }
-
     private func isNumbersInRange(with numbers: [Int]) -> Bool {
         for number in numbers {
             if number < numbersRange.first {
@@ -89,17 +82,19 @@ extension FaTsaiBrain {
         return true
     }
 
+    private func isInclusiveNumbersInExclusiveNumbers() -> Bool {
+        let inclusiveNumbersSet = Set(inclusiveNumbers)
+        let exclusiveNumbersSet = Set(exclusiveNumbers)
+        let list = inclusiveNumbersSet.intersection(exclusiveNumbersSet)
+        return !list.isEmpty
+    }
+
     private func consecutiveNumbers() -> Set<Int> {
         // Doesn't accept negative integer
         guard let info = consecutiveNumbersInfo,
             info.total > 0 else {
             return []
         }
-        // If has starting number
-        // check if its within range
-        // start has to be greater or equal the first number
-        // start has to be less than the last number
-        // check if the next one is within range
         var result = Set<Int>()
         if let start = info.start,
             start >= numbersRange.first,
