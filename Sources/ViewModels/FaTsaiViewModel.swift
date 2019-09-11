@@ -16,4 +16,14 @@ final class FaTsaiViewModel {
 
     weak var delegate: FaTsaiViewModelDelegate?
 
+    let faTsaiBrain: FaTsaiBrain
+
+    var randomNumbersString: String {
+        return faTsaiBrain.randomNumbers().toStringWithComma
+    }    
+
+    init(faTsaiBrain: FaTsaiBrain) {
+        self.faTsaiBrain = faTsaiBrain
+    }
+
 }

@@ -16,9 +16,7 @@ class ViewController: UIViewController {
         static let largestNumber = 38
     }
 
-    private let faTsaiBrian = FaTsaiBrain(totalNumbersCount: Constants.lotteryNumbersCount, numbersRange: (Constants.smallesNumber, Constants.largestNumber))
-
-    private let viewModel = FaTsaiViewModel()
+    private let viewModel = FaTsaiViewModel(faTsaiBrain: FaTsaiBrain(totalNumbersCount: Constants.lotteryNumbersCount, numbersRange: (Constants.smallesNumber, Constants.largestNumber)))
 
     @IBOutlet private weak var selectedNumbersLabel: UILabel!
     @IBOutlet private weak var resultLabel: UILabel!
@@ -39,7 +37,7 @@ class ViewController: UIViewController {
     }
 
     private func faTsaiBrianSetup() {
-        // TODO: Add additional setup
+        // UI to ViewModel
 
     }
 
@@ -62,7 +60,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func selectNumbersButtonTapped(_ sender: UIButton) {
-        selectedNumbersLabel.text = faTsaiBrian.randomNumbers().toStringWithComma
+        selectedNumbersLabel.text = viewModel.randomNumbersString
         getResultButton.isEnabled = true
     }
 
