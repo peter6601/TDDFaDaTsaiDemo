@@ -19,8 +19,13 @@ enum APIRequests: String, Requests {
     }
 }
 
+protocol FaDaTsaiAPIProtocol {
+    var service: Service { get }
+    func getResult(request: Requests, completion: @escaping (Result<FaDaTsaiResult, Error>) -> Void) -> URLSessionTask?
+}
+
 /// Representing an FaDaTsai API object
-final class FaDaTsaiAPI {
+final class FaDaTsaiAPI: FaDaTsaiAPIProtocol {
 
     /// `FaDaTsaiAPI` service
     let service: Service
